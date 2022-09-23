@@ -117,6 +117,7 @@ array_number = [
   [5, 10, 20],
   [2, 4, 6],
 ];
+
 const prfixsumArray2d = (array) => {
   let i, j;
   for (j = 0; j < array.length; j++) {
@@ -131,5 +132,24 @@ const prfixsumArray2d = (array) => {
   }
   return array;
 };
-
 // console.log(prfixsumArray2d(array_number));
+
+//Membuat faktorial
+const faktorialRekrusif = (n) => {
+  if (n <= 0) {
+    return 1;
+  } else {
+    return n * faktorialRekrusif(n - 1);
+  }
+};
+let m = 4;
+// console.log(faktorialRekrusif(m));
+// Membuat faktorial dengan tail rekrusift
+const faktorialTailrekrusif = (total, n) => {
+  if (n <= 0) {
+    return total;
+  } else {
+    return faktorialTailrekrusif(total * n, n - 1);
+  }
+};
+// console.log(faktorialTailrekrusif(1, m));
