@@ -87,19 +87,22 @@ const sumDigit = (n) => {
 // console.log(sumDigit(n));
 
 //Membuat plindrome yang mana reverse string tetap dibaca sama seperti kodok reverse kodok
-const example = "kodok";
+const example = "kkok";
 const array_example = example.split("");
 
 const palindrome = (word, start, end) => {
   if (start <= end) {
     if (word[start] !== word[end]) {
-      return "Bukan Palin drome";
+      return false;
+    } else {
+      return palindrome(word, (start += 1), (end -= 1));
     }
-    palindrome(word, (start += 1), (end -= 1));
+  } else {
+    return true;
   }
-  return "Palindrome";
 };
-// console.log(palindrome(example, 0, array_example.length - 1));
+
+// console.log(palindrome(array_example, 0, array_example.length - 1));
 
 //Menabahkan semua angka dalam array seperti contoh berikut. [1,2,3,5]=11
 const sumArray = (arr) => {
@@ -152,4 +155,25 @@ const faktorialTailrekrusif = (total, n) => {
     return faktorialTailrekrusif(total * n, n - 1);
   }
 };
-// console.log(faktorialTailrekrusif(1, m));
+//
+
+// const data = ["[", "(", ")", "]"];
+
+// const cekBraklet = (n, start, end) => {
+//   const braklet = {
+//     "{": "}",
+//     "[": "]",
+//     "(": ")",
+//     "}": "{",
+//     "]": "[",
+//     ")": "(",
+//   };
+
+//   if (start <= end) {
+//     if (braklet[n[start]] !== n[end]) {
+//       return "tidak valid";
+//     }
+//     cekBraklet(n, (start += 1), (end -= 1));
+//   }
+// };
+// console.log(cekBraklet(data, 0, data.length - 1));
