@@ -179,20 +179,37 @@ const cekBraklet = (n, start, end) => {
   }
 };
 // console.log(cekBraklet(data, 0, data.length - 1));
+
+//menambah dua element array sesuai target
+//menggunakan loop
 const array_int = [1, 2, 3, 5, 7, 2, 9];
 
-for (let i = 0; i <= array_int.length - 1; i++) {
-  let jml = 0;
-  for (let j = 0; j <= array_int.length - 1; j++) {
-    jml = array_int[i] + array_int[j];
-    if (jml == 3) {
-      console.log(
-        `Dengan menambahkan angka ${array_int[i]} dan ${array_int[j]}`
-      );
-      break;
+// for (let i = 0; i <= array_int.length - 1; i++) {
+//   let jml = 0;
+//   for (let j = 0; j <= array_int.length - 1; j++) {
+//     jml = array_int[i] + array_int[j];
+//     if (jml == 3) {
+//       console.log(
+//         `Dengan menambahkan angka ${array_int[i]} dan ${array_int[j]}`
+//       );
+//       break;
+//     }
+//   }
+// }
+
+//dengan rekrusif
+const Tambah = (element, arr, awal, akhir, target) => {
+  if (awal < akhir) {
+    let hasil = element + arr[awal];
+    if (hasil === target) {
+      console.log(` ${element} + ${arr[awal]} = ${hasil}`);
+    } else {
+      return Tambah(element, arr, awal + 1, akhir, target);
     }
   }
+};
+for (let i = 0; i < array_int.length; i++) {
+  Tambah(array_int[i], array_int, 0, array_int.length, 6);
 }
-const map = new Map();
 
 // Add values to the map
