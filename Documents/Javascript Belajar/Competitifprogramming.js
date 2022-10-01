@@ -155,25 +155,44 @@ const faktorialTailrekrusif = (total, n) => {
     return faktorialTailrekrusif(total * n, n - 1);
   }
 };
-//
 
-// const data = ["[", "(", ")", "]"];
+// Membuat cek braklet
+const data = ["[", "(", ")", "]"];
+const cekBraklet = (n, start, end) => {
+  const braklet = {
+    "{": "}",
+    "[": "]",
+    "(": ")",
+    "}": "{",
+    "]": "[",
+    ")": "(",
+  };
 
-// const cekBraklet = (n, start, end) => {
-//   const braklet = {
-//     "{": "}",
-//     "[": "]",
-//     "(": ")",
-//     "}": "{",
-//     "]": "[",
-//     ")": "(",
-//   };
-
-//   if (start <= end) {
-//     if (braklet[n[start]] !== n[end]) {
-//       return "tidak valid";
-//     }
-//     cekBraklet(n, (start += 1), (end -= 1));
-//   }
-// };
+  if (start <= end) {
+    if (braklet[n[start]] !== n[end]) {
+      return "tidak valid";
+    } else {
+      return cekBraklet(n, (start += 1), (end -= 1));
+    }
+  } else {
+    return "valid";
+  }
+};
 // console.log(cekBraklet(data, 0, data.length - 1));
+const array_int = [1, 2, 3, 5, 7, 2, 9];
+
+for (let i = 0; i <= array_int.length - 1; i++) {
+  let jml = 0;
+  for (let j = 0; j <= array_int.length - 1; j++) {
+    jml = array_int[i] + array_int[j];
+    if (jml == 3) {
+      console.log(
+        `Dengan menambahkan angka ${array_int[i]} dan ${array_int[j]}`
+      );
+      break;
+    }
+  }
+}
+const map = new Map();
+
+// Add values to the map
